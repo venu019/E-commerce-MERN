@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+// const authRouter = require('./routes/auth/auth-routes');
+const route = require("./routes/auth/auth-routes");
 
 const uri = 'mongodb+srv://venu:venu@ecom.pokvm.mongodb.net/';
 
@@ -35,11 +37,7 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
-
-// Sample route
-app.get("/", (req, res) => {
-  res.send("API is running successfully!");
-});
+app.use('/api/auth',route)
 
 // Start server
 app.listen(PORT, (error) => {
