@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const User = require('../../models/User'); // Adjust path as needed
+const User = require('../../models/user'); // Adjust path as needed
 
 //register
 const registerUser = async (req, res) => {
@@ -37,6 +37,7 @@ const registerUser = async (req, res) => {
 
 const loginUser = async(req,res)=>{
   const {Email,Password}=req.body;
+  console.log(Email,Password)
   try{
     const checkUser=await User.findOne({Email});
     console.log(checkUser)
@@ -65,7 +66,7 @@ const loginUser = async(req,res)=>{
         Email: checkUser.Email,
         Role: checkUser.Role,
         id: checkUser._id,
-        UserName: checkUser.UserName,
+        Username: checkUser.Username,
       },
     });
 

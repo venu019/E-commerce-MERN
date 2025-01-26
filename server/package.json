@@ -11,6 +11,7 @@
   "author": "venu",
   "license": "ISC",
   "dependencies": {
+    "@paypal/paypal-js": "^8.1.3",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.5.1",
     "cookie-parser": "^1.4.7",
@@ -22,6 +23,7 @@
     "mongoose": "^8.8.4",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.7",
+    "paypal-rest-sdk": "^1.8.1",
     "server": "file:"
   }
 }

@@ -38,6 +38,7 @@ export const loginUser = createAsyncThunk(
       }
     );
     console.log(response.data);
+    console.log(formData,"venu")
     return response.data;
   }
 );

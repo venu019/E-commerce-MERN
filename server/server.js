@@ -4,8 +4,12 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const authRouter = require('./routes/auth/auth-routes');
 const adminProductsRouter = require("./routes/admin/product-routes")
+const adminOrderRouter = require("./routes/admin/order-routes");
+
 const shopProductRouter = require("./routes/shop/product-routes")
 const shopcartRouter = require("./routes/shop/cart-routes")
+const shopAddressRouter = require("./routes/shop/address-routes")
+const shopOrderRouter = require("./routes/shop/order-routes")
 
 const uri = 'mongodb+srv://venu:venu@ecom.pokvm.mongodb.net/';
 
@@ -41,8 +45,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use('/api/auth',authRouter)
 app.use('/api/admin/products',adminProductsRouter)
+app.use("/api/admin/orders", adminOrderRouter);
+
 app.use('/api/shop/products',shopProductRouter)
 app.use('/api/shop/cart',shopcartRouter)
+app.use('/api/shop/address',shopAddressRouter)
+app.use('/api/shop/order',shopOrderRouter)
 
 // Start server
 app.listen(PORT, (error) => {

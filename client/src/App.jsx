@@ -17,6 +17,8 @@ import ShoppingAccount from './pages/shopping-view/account';
 import ShoppingCheckout from './pages/shopping-view/checkout';
 import ShoppingListing from './pages/shopping-view/listing';
 import CheckAuth from './components/common/checkauth';
+import PaymentSuccessPage from './pages/shopping-view/payment-success';
+import PaypalReturnPage from './pages/shopping-view/paypal-return';
 import { checkAuth } from './store/auth';
 import { Skeleton } from './components/ui/skeleton';
 import UnauthPage from './pages/not found/unauth';
@@ -31,15 +33,23 @@ function App() {
   }, [dispatch]);
 
 
-  if (isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
+  if (isLoading) return <Skeleton className="w-[800] bg-black h-[1000px]" />;
   
   console.log(isLoading, user);
    
   return (
     <div className="flex flex-col overflow-hidden bg-white">
-      <h1>My header</h1>
       <Routes>
         {/* Auth Routes */}
+        <Route
+          path="/"
+          element={
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+            ></CheckAuth>
+          }
+        />
         <Route
           path="/auth/*"
           element={
@@ -81,6 +91,8 @@ function App() {
           <Route path="account" element={<ShoppingAccount />} />
           <Route path="checkout" element={<ShoppingCheckout />} />
           <Route path="listing" element={<ShoppingListing />} />
+          <Route path="paypal-return" element={<PaypalReturnPage />} />
+          <Route path="payment-success" element={<PaymentSuccessPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 
