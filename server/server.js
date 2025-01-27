@@ -10,6 +10,10 @@ const shopProductRouter = require("./routes/shop/product-routes")
 const shopcartRouter = require("./routes/shop/cart-routes")
 const shopAddressRouter = require("./routes/shop/address-routes")
 const shopOrderRouter = require("./routes/shop/order-routes")
+const shopSearchRouter = require("./routes/shop/search-routes");
+
+const commonFeatureRouter = require("./routes/common/feature-routes");
+
 
 const uri = 'mongodb+srv://venu:venu@ecom.pokvm.mongodb.net/';
 
@@ -51,6 +55,9 @@ app.use('/api/shop/products',shopProductRouter)
 app.use('/api/shop/cart',shopcartRouter)
 app.use('/api/shop/address',shopAddressRouter)
 app.use('/api/shop/order',shopOrderRouter)
+app.use("/api/shop/search", shopSearchRouter);
+
+app.use("/api/common/feature", commonFeatureRouter);
 
 // Start server
 app.listen(PORT, (error) => {
